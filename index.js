@@ -29,6 +29,7 @@ contactEmail.verify((error) => {
 });
 
 app.post("/contact", (req, res) => {
+
     const name = req.body.message.Name;
     const lastname = req.body.message.LastName;
     const receiving_email = req.body.message.Email;
@@ -56,4 +57,6 @@ app.post("/contact", (req, res) => {
 });
 
 
-app.listen(PORT, console.log(`This app is listening to ${PORT}`))
+app.listen(PORT, function () {
+    console.log(`This app is listening to ${PORT}`)
+})
