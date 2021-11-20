@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const router = express.Router();
 const cors = require('cors');
 const nodemailer = require('nodemailer');
 const PORT = process.env.PORT || 5000;
@@ -12,7 +11,6 @@ app.use(cors({
 }))
 
 app.use(express.json())
-app.use("/", router);
 
 const contactEmail = nodemailer.createTransport({
     service: 'gmail',
@@ -30,7 +28,7 @@ contactEmail.verify((error) => {
     }
 });
 
-router.post("/contact", (req, res) => {
+app.post("/contact", (req, res) => {
     const name = req.body.message.Name;
     const lastname = req.body.message.LastName;
     const receiving_email = req.body.message.Email;
