@@ -38,7 +38,7 @@ app.post("/contact", (req, res) => {
     const fullname = `${name} ${lastname}`
 
     const mail = {
-        from: fullname,
+        from: name,
         to: `${process.env.USER_NAME}`,
         subject: "Portfolio Contact Form Submission",
         html:
